@@ -6,11 +6,13 @@
 //#include "engines/toy.h"
 //#include "engines/toy_tapered.h"
 //#include "engines/fourku.h"
-#include "engines/fourkdotcpp.h"
+//#include "engines/fourkdotcpp.h"
+#include "engines/tcheran.h"
 
 //using TuneEval = Toy::ToyEval;
 //using TuneEval = Toy::ToyEvalTapered;
-using TuneEval = Fourkdotcpp::FourkdotcppEval;
+/*using TuneEval = Fourkdotcpp::FourkdotcppEval;*/
+using TuneEval = Tcheran::TcheranEval;
 constexpr int32_t data_load_thread_count = 4;
 constexpr int32_t thread_count = 12;
 constexpr static bool print_data_entries = false;

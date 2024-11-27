@@ -15,6 +15,6 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 find_package(Threads REQUIRED)
 
-add_executable(tuner "main.cpp" "tuner.cpp" "threadpool.cpp" "engines/toy.cpp" "engines/toy_tapered.cpp" "engines/fourku.cpp" "engines/fourkdotcpp.cpp")
+add_executable(tuner "main.cpp" "tuner.cpp" "threadpool.cpp" "engines/tcheran.cpp")
 
 target_link_libraries(tuner PRIVATE Threads::Threads)
