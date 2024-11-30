@@ -31,84 +31,6 @@ struct Trace
 
 const i32 phases[] = {0, 1, 1, 2, 4, 0};
 
-const i32 material[] = {
-    S(    0,    0),
-    S(    0,    0),
-    S(    0,    0),
-    S(    0,    0),
-    S(    0,    0),
-    S(    0,    0),
-};
-
-const i32 pst_pawn[] = {
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-};
-
-const i32 pst_knight[] = {
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-};
-
-const i32 pst_bishop[] = {
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-};
-
-const i32 pst_rook[] = {
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-};
-
-const i32 pst_queen[] = {
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-};
-
-const i32 pst_king[] = {
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-    S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0), S(    0,    0),
-};
-
-const i32 bishop_pair = S(      0,      0);
-
-
 #define TRACE_INCR(parameter) trace.parameter[color]++
 #define TRACE_ADD(parameter, count) trace.parameter[color] += count
 
@@ -117,10 +39,8 @@ struct EvalForColorResult {
     int phase;
 };
 
-EvalForColorResult eval_for_color(const chess::Board& board, chess::Color c, Trace& trace) {
+void trace_for_color(const chess::Board& board, chess::Color c, Trace& trace) {
     int color = c == chess::Color::WHITE ? 0 : 1;
-    int score = S(0, 0);
-    int phase = 0;
     bool shouldFlip = c == chess::Color::BLACK;
 
     // Pawns
@@ -129,12 +49,7 @@ EvalForColorResult eval_for_color(const chess::Board& board, chess::Color c, Tra
         auto sq = chess::Square(pawns.pop());
         if (shouldFlip) { sq.flip(); }
 
-        phase += phases[0];
-
-        score += material[0];
         TRACE_INCR(material[0]);
-
-        score += pst_pawn[sq.index()];
         TRACE_INCR(pst_pawn[sq.index()]);
     }
 
@@ -144,12 +59,7 @@ EvalForColorResult eval_for_color(const chess::Board& board, chess::Color c, Tra
         auto sq = chess::Square(knights.pop());
         if (shouldFlip) { sq.flip(); }
 
-        phase += phases[1];
-
-        score += material[1];
         TRACE_INCR(material[1]);
-
-        score += pst_knight[sq.index()];
         TRACE_INCR(pst_knight[sq.index()]);
     }
 
@@ -162,17 +72,11 @@ EvalForColorResult eval_for_color(const chess::Board& board, chess::Color c, Tra
 
         bishop_count += 1;
 
-        phase += phases[2];
-
-        score += material[2];
         TRACE_INCR(material[2]);
-
-        score += pst_bishop[sq.index()];
         TRACE_INCR(pst_bishop[sq.index()]);
     }
 
     if (bishop_count > 1) {
-        score += bishop_pair;
         TRACE_INCR(bishop_pair);
     }
 
@@ -182,12 +86,7 @@ EvalForColorResult eval_for_color(const chess::Board& board, chess::Color c, Tra
         auto sq = chess::Square(rooks.pop());
         if (shouldFlip) { sq.flip(); }
 
-        phase += phases[3];
-
-        score += material[3];
         TRACE_INCR(material[3]);
-
-        score += pst_rook[sq.index()];
         TRACE_INCR(pst_rook[sq.index()]);
     }
 
@@ -197,12 +96,7 @@ EvalForColorResult eval_for_color(const chess::Board& board, chess::Color c, Tra
         auto sq = chess::Square(queens.pop());
         if (shouldFlip) { sq.flip(); }
 
-        phase += phases[4];
-
-        score += material[4];
         TRACE_INCR(material[4]);
-
-        score += pst_queen[sq.index()];
         TRACE_INCR(pst_queen[sq.index()]);
     }
 
@@ -212,30 +106,14 @@ EvalForColorResult eval_for_color(const chess::Board& board, chess::Color c, Tra
         auto sq = chess::Square(kings.pop());
         if (shouldFlip) { sq.flip(); }
 
-        phase += phases[5];
-
-        score += pst_king[sq.index()];
         TRACE_INCR(pst_king[sq.index()]);
     }
-
-    EvalForColorResult result;
-    result.score = score;
-    result.phase = phase;
-
-    return result;
 }
 
 static Trace eval(const chess::Board& board) {
     Trace trace{};
-
-    auto white_result = eval_for_color(board, chess::Color::WHITE, trace);
-    auto black_result = eval_for_color(board, chess::Color::BLACK, trace);
-
-    auto score = white_result.score - black_result.score;
-    auto phase = white_result.phase + black_result.phase;
-    if (phase > 24) { phase = 24; }
-
-    trace.score = ((short)score * phase + ((score + 0x8000) >> 16) * (24 - phase)) / 24;
+    trace_for_color(board, chess::Color::WHITE, trace);
+    trace_for_color(board, chess::Color::BLACK, trace);
     return trace;
 }
 
@@ -366,31 +244,59 @@ static void print_array_2d(std::stringstream& ss, const parameters_t& parameters
     ss << "};\n";
 }
 
+void get_zeros_parameter_array(parameters_t& parameters, const int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        get_initial_parameter_single(parameters, 0);
+    }
+}
+
 parameters_t TcheranEval::get_initial_parameters()
 {
     parameters_t parameters;
-    get_initial_parameter_array(parameters, material, 6);
-    get_initial_parameter_array(parameters, pst_pawn, 64);
-    get_initial_parameter_array(parameters, pst_knight, 64);
-    get_initial_parameter_array(parameters, pst_bishop, 64);
-    get_initial_parameter_array(parameters, pst_rook, 64);
-    get_initial_parameter_array(parameters, pst_queen, 64);
-    get_initial_parameter_array(parameters, pst_king, 64);
-    get_initial_parameter_single(parameters, bishop_pair);
+
+    // Material
+    get_zeros_parameter_array(parameters, 6);
+
+    // Pawn PST
+    get_zeros_parameter_array(parameters, 64);
+
+    // Knight PST
+    get_zeros_parameter_array(parameters, 64);
+
+    // Bishop PST
+    get_zeros_parameter_array(parameters, 64);
+
+    // Rook PST
+    get_zeros_parameter_array(parameters, 64);
+
+    // Queen PST
+    get_zeros_parameter_array(parameters, 64);
+
+    // King PST
+    get_zeros_parameter_array(parameters, 64);
+
+    // Bishop pair
+    get_initial_parameter_single(parameters, 0);
     return parameters;
 }
 
 static coefficients_t get_coefficients(const Trace& trace)
 {
     coefficients_t coefficients;
+
     get_coefficient_array(coefficients, trace.material, 6);
+
     get_coefficient_array(coefficients, trace.pst_pawn, 64);
     get_coefficient_array(coefficients, trace.pst_knight, 64);
     get_coefficient_array(coefficients, trace.pst_bishop, 64);
     get_coefficient_array(coefficients, trace.pst_rook, 64);
     get_coefficient_array(coefficients, trace.pst_queen, 64);
     get_coefficient_array(coefficients, trace.pst_king, 64);
+
     get_coefficient_single(coefficients, trace.bishop_pair);
+
     return coefficients;
 }
 
