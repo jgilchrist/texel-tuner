@@ -26,6 +26,11 @@ struct Trace
     i32 pst_queen[64][2]{};
     i32 pst_king[64][2]{};
 
+    i32 knight_mobility[9][2]{};
+    i32 bishop_mobility[14][2]{};
+    i32 rook_mobility[15][2]{};
+    i32 queen_mobility[28][2]{};
+
     i32 bishop_pair[2]{};
 };
 
@@ -61,6 +66,9 @@ void trace_for_color(const chess::Board& board, chess::Color c, Trace& trace) {
 
         TRACE_INCR(material[1]);
         TRACE_INCR(pst_knight[sq.index()]);
+
+        auto mobility = chess::attacks::knight(sq).count();
+        TRACE_INCR(knight_mobility[mobility]);
     }
 
     // Bishops
@@ -74,6 +82,9 @@ void trace_for_color(const chess::Board& board, chess::Color c, Trace& trace) {
 
         TRACE_INCR(material[2]);
         TRACE_INCR(pst_bishop[sq.index()]);
+
+        auto mobility = chess::attacks::bishop(sq, board.occ()).count();
+        TRACE_INCR(bishop_mobility[mobility]);
     }
 
     if (bishop_count > 1) {
@@ -88,6 +99,9 @@ void trace_for_color(const chess::Board& board, chess::Color c, Trace& trace) {
 
         TRACE_INCR(material[3]);
         TRACE_INCR(pst_rook[sq.index()]);
+
+        auto mobility = chess::attacks::rook(sq, board.occ()).count();
+        TRACE_INCR(rook_mobility[mobility]);
     }
 
     // Queens
@@ -98,6 +112,9 @@ void trace_for_color(const chess::Board& board, chess::Color c, Trace& trace) {
 
         TRACE_INCR(material[4]);
         TRACE_INCR(pst_queen[sq.index()]);
+
+        auto mobility = (chess::attacks::rook(sq, board.occ()) | chess::attacks::bishop(sq, board.occ())).count();
+        TRACE_INCR(queen_mobility[mobility]);
     }
 
     // Kings
@@ -277,6 +294,18 @@ parameters_t TcheranEval::get_initial_parameters()
     // King PST
     get_zeros_parameter_array(parameters, 64);
 
+    // Knight mobility
+    get_zeros_parameter_array(parameters, 9);
+
+    // Bishop mobility
+    get_zeros_parameter_array(parameters, 14);
+
+    // Rook mobility
+    get_zeros_parameter_array(parameters, 15);
+
+    // Queen mobility
+    get_zeros_parameter_array(parameters, 28);
+
     // Bishop pair
     get_initial_parameter_single(parameters, 0);
     return parameters;
@@ -294,6 +323,11 @@ static coefficients_t get_coefficients(const Trace& trace)
     get_coefficient_array(coefficients, trace.pst_rook, 64);
     get_coefficient_array(coefficients, trace.pst_queen, 64);
     get_coefficient_array(coefficients, trace.pst_king, 64);
+
+    get_coefficient_array(coefficients, trace.knight_mobility, 9);
+    get_coefficient_array(coefficients, trace.bishop_mobility, 14);
+    get_coefficient_array(coefficients, trace.rook_mobility, 15);
+    get_coefficient_array(coefficients, trace.queen_mobility, 28);
 
     get_coefficient_single(coefficients, trace.bishop_pair);
 
@@ -319,6 +353,12 @@ void TcheranEval::print_parameters(const parameters_t& ps)
     print_pst(ss, parameters, index, "ROOKS");
     print_pst(ss, parameters, index, "QUEENS");
     print_pst(ss, parameters, index, "KING");
+
+    print_array(ss, parameters, index, "KNIGHT_MOBILITY", 9, "9");
+    print_array(ss, parameters, index, "BISHOP_MOBILITY", 14, "14");
+    print_array(ss, parameters, index, "ROOK_MOBILITY", 15, "15");
+    print_array(ss, parameters, index, "QUEEN_MOBILITY", 28, "28");
+
     print_single(ss, parameters, index, "BISHOP_PAIR_BONUS");
     cout << ss.str() << "\n";
 }
